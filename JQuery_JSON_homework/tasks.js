@@ -25,6 +25,16 @@
  		}
  	});
  	
+ 	function listing(datum){
+		$('#posts').append($('<li/>').text(datum.body).append($('<button/>').text("X").click(function(){
+				if(confirm("Deleting "+datum.body+"!")){
+					$.ajax("http://jsonplaceholder.typicode.com/posts/"+datum.id, { method: "DELETE" }).then(function() {
+						$("#posts li:contains("+datum.body+")").remove();
+					});
+				}
+		})));
+ 	}
+ 	
  	$("#footer #dynamiccontent #addbutton").click(function() {
  		if(!($("#footer #dynamiccontent #textinput").val().trim())){
  			alert("you must enter text");
@@ -36,15 +46,7 @@
  				title: "posting", 
  				body:$("#footer #dynamiccontent #textinput").val()
  			}}).then(function(data) {
- 				$.ajax("http://jsonplaceholder.typicode.com/posts/"+data.id, { method: "GET" }).then(function(data) {
- 	 				$("#posts").append($('<li/>').text(data.body).append($('<button/>').text("X").click(function(){
- 	 					if(confirm("Deleting "+data.body+"!")){
- 	 						$.ajax("http://jsonplaceholder.typicode.com/posts/"+data.id, { method: "DELETE" }).then(function() {
- 	 							$("#posts li:contains("+data.body+")").remove();
- 	 						});
- 	 					}
- 	 				})));
- 				});
+ 				$.ajax("http://jsonplaceholder.typicode.com/posts/"+data.id, { method: "GET" }).then(function(data) {listing(data);});
  			});
  		}
  	});
@@ -52,10 +54,8 @@
  	$('#footer #dynamiccontent #posts').before($("<input/>").change(function(){
  		$.ajax("http://jsonplaceholder.typicode.com/posts?userId="+$(this).val(), { method: "GET" } ).then(function(data){
 			$('#posts').empty();
- 			$.each(data, function(){
- 				$('#posts').append($('<li/>').text(this.body));
- 			});
+ 			$.each(data, function() {listing(this);});
  		});
  	}));
- 
+
  });
