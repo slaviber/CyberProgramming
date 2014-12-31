@@ -37,7 +37,9 @@
  				body:$("#footer #dynamiccontent #textinput").val()
  			}}).then(function(data) {
  				$.ajax("http://jsonplaceholder.typicode.com/posts/"+data.id, { method: "GET" }).then(function(data) {
- 	 				$("#posts").append($('<li/>').text(data.body));
+ 	 				$("#posts").append($('<li/>').text(data.body).append($('<button/>').text("X").click(function(){
+ 	 					alert("deleting");
+ 	 				})));
  				});
  			});
  		}
