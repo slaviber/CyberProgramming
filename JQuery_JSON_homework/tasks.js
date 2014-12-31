@@ -35,7 +35,11 @@
  				data: { userId: 10, 
  				title: "posting", 
  				body:$("#footer #dynamiccontent #textinput").val()
- 			}});
+ 			}}).then(function(data) {
+ 				$.ajax("http://jsonplaceholder.typicode.com/posts/"+data.id, { method: "GET" }).then(function(data) {
+ 	 				$("#posts").append($('<li/>').text(data.body));
+ 				});
+ 			});
  		}
  	});
  
