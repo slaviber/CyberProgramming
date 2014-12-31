@@ -18,5 +18,11 @@
  	$( "#header #menu-top-level-menu #menu-item-0000" ).click(function() {
  		$("#home .inscreen div:nth-child(2)").after($("#home .inscreen div:nth-child(1)"));
  	 });
+ 	
+ 	$.ajax("http://jsonplaceholder.typicode.com/posts/", { method: "GET" }).then(function(data) {
+ 		for(var i = 0; i < 5; i++){
+ 			$("#posts").append($('<li/>').text(data[i].body));
+ 		}
+ 	});
  
  });
