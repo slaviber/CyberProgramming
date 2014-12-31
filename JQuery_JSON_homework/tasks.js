@@ -38,7 +38,11 @@
  			}}).then(function(data) {
  				$.ajax("http://jsonplaceholder.typicode.com/posts/"+data.id, { method: "GET" }).then(function(data) {
  	 				$("#posts").append($('<li/>').text(data.body).append($('<button/>').text("X").click(function(){
- 	 					alert("deleting");
+ 	 					if(confirm("Deleting "+data.body+"!")){
+ 	 						$.ajax("http://jsonplaceholder.typicode.com/posts/"+data.id, { method: "DELETE" }).then(function() {
+ 	 							$("#posts li:contains("+data.body+")").remove();
+ 	 						});
+ 	 					}
  	 				})));
  				});
  			});
