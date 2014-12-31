@@ -48,5 +48,7 @@
  			});
  		}
  	});
+ 	
+ 	$('#footer #dynamiccontent #posts').before($("<input/>"));
  
  });
