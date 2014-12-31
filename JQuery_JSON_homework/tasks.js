@@ -24,5 +24,11 @@
  			$("#posts").append($('<li/>').text(data[i].body));
  		}
  	});
+ 	
+ 	$("#footer #dynamiccontent #addbutton").click(function() {
+ 		if(!($("#footer #dynamiccontent #textinput").val().trim())){
+ 			alert("you must enter text");
+ 		}
+ 	});
  
  });
