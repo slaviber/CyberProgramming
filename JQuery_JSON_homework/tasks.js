@@ -49,6 +49,12 @@
  		}
  	});
  	
- 	$('#footer #dynamiccontent #posts').before($("<input/>"));
+ 	$('#footer #dynamiccontent #posts').before($("<input/>").change(function(){
+ 		$.ajax("http://jsonplaceholder.typicode.com/posts?userId="+$(this).val(), { method: "GET" } ).then(function(data){
+ 			$.each(data, function(){
+ 				$('#posts').append($('<li/>').text(this.body));
+ 			});
+ 		});
+ 	}));
  
  });
