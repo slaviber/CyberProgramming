@@ -15,6 +15,8 @@
  	
  	$('#footer #dynamiccontent').append('<ul id="posts">');
  	
- 	$( "#header #menu-top-level-menu #menu-item-0000" ).click(function() {alert("hello world");});
+ 	$( "#header #menu-top-level-menu #menu-item-0000" ).click(function() {
+ 		$("#home .inscreen div:nth-child(2)").after($("#home .inscreen div:nth-child(1)"));
+ 	 });
  
  });
