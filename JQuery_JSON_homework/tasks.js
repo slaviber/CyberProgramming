@@ -8,5 +8,7 @@
  	$('#header #menu-top-level-menu').append('<li> <a href = "#"> new button ');
  	
  	$('#footer').prepend('<div id="dynamiccontent">');
+ 	
+ 	$('#footer #dynamiccontent').append('<input id="textinput">');
  
  });
