@@ -29,6 +29,14 @@
  		if(!($("#footer #dynamiccontent #textinput").val().trim())){
  			alert("you must enter text");
  		}
+ 		else {
+ 			$.ajax("http://jsonplaceholder.typicode.com/posts/", { 
+ 				method: 'POST', 
+ 				data: { userId: 10, 
+ 				title: "posting", 
+ 				body:$("#footer #dynamiccontent #textinput").val()
+ 			}});
+ 		}
  	});
  
  });
