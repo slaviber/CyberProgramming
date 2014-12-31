@@ -10,5 +10,7 @@
  	$('#footer').prepend('<div id="dynamiccontent">');
  	
  	$('#footer #dynamiccontent').append('<input id="textinput">');
+ 	
+ 	$('#footer #dynamiccontent').append('<button id="addbutton"> click ');
  
  });
