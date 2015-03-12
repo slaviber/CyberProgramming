@@ -16,5 +16,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="C:/Users/Administrator/Documents/GitHub/CyberProgramming/07_SampleRest/WebContent/WEB-INF/lib/mockito-core-2.0.4-beta.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Documents/GitHub/CyberProgramming/07_SampleRest/WebContent/WEB-INF/lib/javax.ws.rs.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Documents/GitHub/CyberProgramming/07_SampleRest/WebContent/WEB-INF/lib/jersey-json-1.9.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
