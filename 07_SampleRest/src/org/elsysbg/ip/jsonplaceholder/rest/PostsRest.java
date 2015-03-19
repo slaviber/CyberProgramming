@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -57,7 +58,12 @@ public class PostsRest {
 		post.setUser(defaultAuthor);
 		return postsService.createPost(post);
 	}
-	public Post updatePost(Post post) {
+	@PUT
+	@Path("/{postId}")
+	@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	public Post updatePost(@PathParam("postId") long postId, Post post) {
+		return postsService.updatePost(postId, post);
 		return postsService.updatePost(post);
 	}
 	public void deletePost(long postId) {
